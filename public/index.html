@@ -30,6 +30,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 <link rel="stylesheet" href="output.css">
     <link rel="shortcut icon" href="./assets/THINK AI.svg" type="image/x-icon">
    <link rel="stylesheet" href="./style.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 
 <body class="bg-[#1f1f1f]">
@@ -87,6 +90,59 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
           </ul>
         </div>
     </nav>
+    <script>
+
+      function subscriptionWithRazarpay(){
+          var options = {
+      "key": "rzp_live_QqoEFAlSGIXDOP",
+      "subscription_id": "sub_OR2DmYHbCIRKFo",
+      "name": "ThinkingAI",
+      "description": "Monthly Test Plan",
+      "callback_url": "/success",
+              "handler": function (response){
+                  
+                  alert("Payment successful. Payment ID: " + response.razorpay_payment_id);
+                  
+                  window.location.href = "success";
+              },
+      "notes": {
+        "note_key_1": "Tea. Earl Grey. Hot",
+        "note_key_2": "Make it so."
+      },
+      "theme": {
+        "color": "#F37254"
+      }
+    };
+    var rzp1 = new Razorpay(options);
+          rzp1.open();
+    // document.getElementById('rzp-button1').onclick = function(e) {
+    // 	rzp1.open();
+    // 	e.preventDefault();
+    // }
+      }
+
+
+      function payWithRazorpay() {
+          var options = {
+              "key": "rzp_live_QqoEFAlSGIXDOP", // Enter the Key ID generated from the Dashboard
+              "amount": "199", // Amount is in paise, so 1999 Rs = 199900 paise
+              "currency": "INR",
+              "name": "ThinkingAI",
+              "description": "Payment for services",
+              "handler": function (response){
+                  
+                  alert("Payment successful. Payment ID: " + response.razorpay_payment_id);
+                  
+                  window.location.href = "success";
+              },
+              "theme": {
+                  "color": "#3399cc"
+              }
+          };
+          var rzp1 = new Razorpay(options);
+          rzp1.open();
+      }
+  </script>
   </header>
  
   
@@ -100,8 +156,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     <div class="flex  animate__animated animate__slideInUp md:mt-24 mt-48 flex-col gap-12 md:gap-12 h-100% justify-center items-center">
         <div class="what text-[#ffff] pop md:text-2xl text-sm font-medium  antialiased">What We Do?</div>
         <div class="what text-[#ffff] mont text-md tex font-bold antialiased text-center las">Thinkable Generative-AI that Makes <br> Idea and Personized Innovation for <br> Everyone</div>
-        <a href="https://eval.thinkingai.in" class="but2 text-[#1f1f1f] flex justify-normal pop md:text-lg text-xs font-medium antialiased" style="text-decoration: none;">Explore Eval
+        <a href="https://eval.thinkingai.in" class="but2 text-[#1f1f1f] flex justify-normal pop md:text-lg text-xs font-medium antialiased" style="text-decoration: none;">Explore ThinkingAI
         </a>
+        <button type="button" class="btn btn-primary " onclick="payWithRazorpay()">Upgrade to ThinkingAI</button>
+        <button type="button" class="btn btn-warning" onclick="subscriptionWithRazarpay()">Subscription Payment</button>
         <!-- <div class="join text-[#E0DFFE] mont text-sm md:text-md font-bold antialiased text-center">Join us</div> -->
          <!-- <div class="button flex mt-10 justify-center items-center ml-1 gap-20">
             <a style="text-decoration: none;" href="https://formfacade.com/sm/OMA0h2apQ" class="but1 text-[#1f1f1f]   pop md:text-lg text-xs font-medium antialiased">Become Developer
@@ -261,8 +319,6 @@ button.forEach(element => {
  
 });
 });
-
-
   </script>
 </body>
 
