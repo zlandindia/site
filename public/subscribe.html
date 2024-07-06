@@ -172,6 +172,59 @@
             }
         }
     </style>
+    <script src = "https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        function monthlySubsription() {
+            var options = {
+				"key": "rzp_live_QqoEFAlSGIXDOP",
+				"subscription_id": "sub_OVEkluMyVVYGOg",
+				"name": "ThinkingAI",
+				"description": "ThinkingAI Monthly Access",
+				"handler": function (response){
+                  
+                  alert("Payment successful. Payment ID: " + response.razorpay_payment_id);
+                  
+                  window.location.href = "https://thinkingai.in/under-construction.html";
+              },
+				"notes": {
+					"note_key_1": "Tea. Earl Grey. Hot",
+					"note_key_2": "Make it so."
+				},
+				"theme": {
+					"color": "#F37254"
+				}
+			};
+		var rzp1 = new Razorpay(options);
+        rzp1.open();
+		// document.getElementById('rzp-button1').onclick = function(e) {
+			
+		// 	e.preventDefault();
+		// }
+        }
+        function yearlySubsription() {
+            var options = {
+				"key": "rzp_live_QqoEFAlSGIXDOP",
+				"subscription_id": "sub_OVF4Rcd0C4btJB",
+				"name": "ThinkingAI",
+				"description": "ThinkingAI Yearly Access",
+				"handler": function (response){
+                  
+                  alert("Payment successful (Yearly). Payment ID: " + response.razorpay_payment_id);
+                  
+                  window.location.href = "https://thinkingai.in/under-construction.html";
+              },
+				"notes": {
+					"note_key_1": "Tea. Earl Grey. Hot",
+					"note_key_2": "Make it so."
+				},
+				"theme": {
+					"color": "#F37254"
+				}
+			};
+		var rzp1 = new Razorpay(options);
+        rzp1.open();
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -188,7 +241,7 @@
                 <p>Standard updates</p>
                 <p>Basic support</p>
                 <div class="price">Rs.0</div>
-                <button>Get Started</button>
+                <button href="./under-construction.html">Get Started</button>
             </div>
             <div class="plan">
                 <h2>Pro</h2>
@@ -197,7 +250,7 @@
                 <p>Continuous and priority updates</p>
                 <p>Premium support</p>
                 <div class="price">Rs.1950/month</div>
-                <button>Upgrade Now</button>
+                <button onclick="monthlySubsription()">Upgrade Now</button>
             </div>
             <div class="plan">
                 <h2>Pro Yearly (15% Offer)</h2>
@@ -206,7 +259,7 @@
                 <p>Continuous and priority updates</p>
                 <p>Premium support</p>
                 <div class="price">Rs.19,890/year</div>
-                <button>Upgrade Now</button>
+                <button click="yearlySubsription()">Upgrade Now</button>
             </div>
         </div>
 
@@ -238,7 +291,7 @@
         <div class="cta">
             <h2>Ready to Upgrade?</h2>
             <p>Join our community and unlock the full potential of Thinking AI.</p>
-            <button>Upgrade Now</button>
+            <button onclick="monthlySubsription()">Upgrade Now</button>
         </div>
     </div>
 </body>
